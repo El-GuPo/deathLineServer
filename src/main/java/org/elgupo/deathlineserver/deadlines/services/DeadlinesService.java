@@ -6,11 +6,14 @@ import java.util.List;
 import org.elgupo.deathlineserver.deadlines.controller.dto.DeadlineDto;
 import org.elgupo.deathlineserver.deadlines.repository.DeadlineEntity;
 import org.elgupo.deathlineserver.deadlines.repository.DeadlinesRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class DeadlinesService {
     private final DeadlinesRepository deadlinesRepository;
+
+    @Autowired
     public DeadlinesService(DeadlinesRepository deadlinesRepository) {
         this.deadlinesRepository = deadlinesRepository;
     }
@@ -37,8 +40,5 @@ public class DeadlinesService {
     }
     public void deleteDeadlineForUser(Long deadlineId) {
         deadlinesRepository.deleteByDeadlineId(deadlineId);
-    }
-    public void updateDeadlineForUser(DeadlineDto deadline) {
-        deadlinesRepository.updateDeadline(deadline.getDeadlineId(), deadline.getName(), deadline.getDescription(), deadline.getDeadline());
     }
 }
