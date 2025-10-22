@@ -16,4 +16,8 @@ public interface DeadlinesRepository extends CrudRepository<DeadlineEntity, Inte
     public List<DeadlineDto> findByUserId(Long userId);
 
     public void deleteByDeadlineId(Long userId);
+
+    @Query("SELECT * FROM deadlines WHERE deadline BETWEEN :start AND :end")
+    public List<DeadlineEntity> findByDeadlineBetween(@Param("start") Instant start, @Param("end") Instant end);
+
 }
