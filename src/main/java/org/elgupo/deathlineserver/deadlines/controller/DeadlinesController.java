@@ -38,9 +38,4 @@ public class DeadlinesController {
     public void deleteDeadlineForUser(@RequestParam("deadlineId") Long deadlineId) {
         deadlineService.deleteDeadlineForUser(deadlineId);
     }
-
-    @PostMapping("/deadlines/update_deadline_for_user")
-    public void updateDeadlineForUser(@RequestParam("deadline") DeadlineDto deadline) {
-        deadlineService.updateDeadlineForUser(deadline);
-    }
 }
